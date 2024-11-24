@@ -1,0 +1,301 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+body{
+    width: 100%;
+    height: 100vh;
+}
+.code-editor-container{
+    width: 100%;
+    height: 70%;
+    background-color: rgb(12, 17, 20);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap:20px;
+    padding: 20px;
+    overflow: auto;
+}
+.code-editor{
+    width: 450px;
+    height: 450px;
+    background-color: rgb(12, 17, 20);
+    box-shadow: 2px 2px 10px black;
+    border: 2px solid rgba(255, 255, 255, 0.105);
+    border-radius: 20px;
+    overflow: auto;
+    position: relative;
+}
+.head-editor{
+    width: 100%;
+    height: 60px;
+    background-color: rgb(12, 17, 20);
+    box-shadow: 2px 4px 10px black;
+    border-radius: 0px 0px 40px 40px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.left-head span{
+    color:rgba(255, 255, 255, 0.491);
+    font-size: 20px;
+   
+}
+.left-head{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:10px
+}
+.right-head img{
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.right-head img:hover{
+scale:120%;
+}
+.code-editor textarea{
+    width: 100%;
+    height: calc(100% - 80px);
+    background-color: rgb(12, 17, 20);
+    border:none;
+    position: absolute;
+    bottom: 0;
+    outline: none;
+    color:white;
+    padding: 20px;
+    resize: none;
+    font-size: 27px;
+}
+.output-container{
+    width: 100%;
+    height: 30%;
+box-shadow: 2px -4px 10px rgb(36, 71, 72);
+color:rgba(255, 255, 255, 0.891);
+font-size: 20px;
+z-index: 1;
+position: fixed;
+bottom: 0;
+transition: all 0.5s;
+}
+.output-head{
+    width: 100%;
+    height: 60px;
+    background-color:rgb(12, 17, 20) ;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap:20px;
+    padding: 20px;
+
+}
+.output-head img{
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.output-head img:hover{
+scale:120%;
+}
+#output{
+    width: 100%;
+    height: calc(100% - 60px);
+    overflow: auto;
+    background-color: white;
+}
+.output-full-active{
+height: 100%;
+}
+#full{
+    transition: all 1s;
+}
+.html-input::selection{
+background-color: rgb(255, 119, 0);
+}
+.js-input::selection{
+    background-color: rgb(255, 247, 0);
+    color: black;
+    }
+
+
+    /* Body Background with Gradient */
+body {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+}
+
+/* Animated Gradient for Editors */
+.code-editor {
+    background: linear-gradient(145deg, #0d1117, #1e293b);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s ease;
+}
+
+.code-editor:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 128, 255, 0.5);
+}
+
+/* Editor Header Gradient */
+.head-editor {
+    background: linear-gradient(145deg, #14161a, #1f1f26);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Animated Icon Hover */
+.right-head img {
+    transition: transform 0.3s ease-in-out, filter 0.3s ease;
+    filter: drop-shadow(0 0 2px white);
+}
+
+.right-head img:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 8px #00ffcc);
+}
+
+/* Output Frame Glow Effect */
+#output {
+    background: #ffffff;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+/* Toggle Animation for Fullscreen */
+.output-container {
+    transition: height 0.5s ease, box-shadow 0.5s ease;
+}
+
+.output-full-active {
+    box-shadow: 0 -10px 25px rgba(0, 128, 255, 0.7);
+}
+
+/* Scrollbar Styling */
+textarea {
+    scrollbar-width: thin;
+    scrollbar-color: #00ffcc rgba(0, 0, 0, 0.5);
+}
+
+textarea::-webkit-scrollbar {
+    width: 8px;
+}
+
+textarea::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background: #00ffcc;
+    border-radius: 10px;
+}
+
+/* Custom Selection Styling */
+textarea::selection {
+    background-color: #0096ff;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .code-editor {
+        width: 90%;
+        height: 300px;
+    }
+
+    .code-editor textarea {
+        font-size: 20px;
+    }
+}
+
+/* Save Button Animation */
+#save.clicked {
+    animation: pulse 0.5s;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Copy Icon Animation */
+.copy.copied {
+    animation: bounce 0.5s;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+
+
+.code-editor:focus-within {
+    border: 2px solid #00ffcc;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.6);
+    transform: scale(1.02);
+}
+
+.code-editor-container {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#output {
+    transition: box-shadow 0.5s ease;
+}
+
+#output.updated {
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.7);
+}
+
+.output-head img:active {
+    animation: ripple 0.4s ease-out;
+}
+
+@keyframes ripple {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+}
+
+.right-head img {
+    animation: float 3s ease-in-out infinite;
+}
+
